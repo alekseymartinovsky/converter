@@ -1,0 +1,145 @@
+html{
+	font-family: 'Andika New Basic', sans-serif;
+}
+
+.all{
+	display: inline-block;
+	margin: auto;
+}
+
+h2{
+	font-weight: 400;
+	padding: 5px;
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+	border: 1px solid black;
+	padding: 0 10px;
+}
+
+.cost{
+	color: green;
+	padding-left: 10px;
+}
+
+.inp{
+	border: 0px;
+}
+
+.inp:focus{
+	outline: none;
+}
+
+.addCurrency{
+	margin-top: 20px;
+	padding: 5px;
+}
+
+.addCurrencyButton:hover{
+	cursor: pointer;
+	background: #d7d7d9;
+}
+
+#converter{
+	width: 200px;
+}
+
+.converter{
+	border: 1px solid black;
+	display: flex;
+	margin-top: 10px;
+}
+
+li{
+	list-style-type: none;
+	text-align: left;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+li:hover{
+	background: #d7d7d9;
+}
+
+ul{
+	padding: 0;
+}
+
+#currency_list{
+	z-index: 1000;
+	background: white;
+	height: 10em;
+	overflow: auto;
+	width: 300px;
+	border: 1px solid black;
+}
+
+@media (max-device-width: 425px){
+	html{
+		font-size: 48px;
+	}
+
+	#converter{
+		width: 600px;
+	}
+
+	.converter{
+		width: 600px;
+	}
+
+	.inp{
+		width: 450px;
+		font-size: 48px;
+			padding-left: 10px; 
+	}
+
+	.name_currency{
+		float: right;
+	}
+
+	#currency_list{
+		width: 600px;
+		background: white;
+	}
+
+	#name_currency{
+		float: left;
+		margin-left: 0px;
+	}
+}
+
+@media (max-device-width: 760px){
+	html{
+		font-size: 24px;
+	}
+
+	#converter{
+		width: 300px;
+	}
+
+	.converter{
+		width: 300px;
+	}
+
+	.inp{
+		width: 225px;
+		font-size: 24px;
+			padding-left: 10px; 
+	}
+
+	.name_currency{
+		float: right;
+	}
+
+	#currency_list{
+		width: 300px;
+	}
+
+	#name_currency{
+		float: left;
+		margin-left: 0px;
+	}
+}

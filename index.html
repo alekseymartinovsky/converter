@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Конвертер</title>
+	<link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<center>
+	<div class="all">
+	<h2>Курс валют НБРБ</h2>
+	<div id="exchangeRanges">
+		<table>
+			<tr>
+				<td>Доллар США</td>
+				<td id="USD" class="cost"></td>
+			</tr>
+			<tr>
+				<td>Евро</td>
+				<td id="EUR"  class="cost"></td>
+			</tr>
+			<tr>
+				<td>Российский рубль</td>
+				<td id="RUB"  class="cost"></td>
+			</tr>
+			<tr>
+				<td>Украинская гривна</td>
+				<td id="UAH"  class="cost"></td>
+			</tr>
+		</table>
+	</div>
+	<h2>Конвертер валют НБРБ</h2>
+	<div id="converter">
+		<div class="converter" id="con_BYN">
+			<input type="number" id="in_BYN" name="" class="inp" oninput="exchangeRate.update(this)">
+			<div class="name_currency">BYN</div>
+		</div>
+		<div class="converter" id="con_USD">
+			<input type="number" id="in_USD" name="" class="inp" oninput="exchangeRate.update(this)">
+			<div class="name_currency">USD</div>
+		</div>
+		<div class="converter" id="con_EUR">
+			<input type="number" id="in_EUR" name="" class="inp" oninput="exchangeRate.update(this)">
+			<div class="name_currency">EUR</div>
+		</div>
+		<div class="converter" id="con_RUB">
+			<input type="number" id="in_RUB" name="" class="inp" oninput="exchangeRate.update(this)">
+			<div class="name_currency">RUB</div>
+		</div>
+		<div class="converter" id=con_UAH>
+			<input type="number" id="in_UAH" name="" class="inp" oninput="exchangeRate.update(this)">
+			<div class="name_currency">UAH</div>
+		</div>
+	</div>
+	<div class="addCurrency">
+		<a class="addCurrencyButton" onclick="show.addCurrency()">Добавить валюту</a>
+	</div>
+
+	<div>
+		<ul id="currency_list">
+			<li onclick="show.list(this)">Доллар США USD ✓</li>
+			<li onclick="show.list(this)">Евро EUR ✓</li>
+			<li onclick="show.list(this)">Российский рубль RUB ✓</li>
+			<li onclick="show.list(this)">Украинская гривна UAH ✓</li>
+			<li onclick="show.list(this)">Австралийский доллар ✓</li>
+			<li onclick="show.list(this)">Болгарский лев BGN</li>
+			<li onclick="show.list(this)">Датская крона DKK</li>
+			<li onclick="show.list(this)">Польский злотый PLN</li>
+			<li onclick="show.list(this)">Йена JPY</li>
+			<li onclick="show.list(this)">Иранский риал IRR</li>
+			<li onclick="show.list(this)">Исландская крона ISK</li>
+			<li onclick="show.list(this)">Канадский доллар CAD</li>
+			<li onclick="show.list(this)">Китайский юань CNY</li>
+			<li onclick="show.list(this)">Кувейтский динар KWD</li>
+			<li onclick="show.list(this)">Молдавских леев MDL</li>
+			<li onclick="show.list(this)">Новозеландский доллар NZD</li>
+			<li onclick="show.list(this)">Норвежская крона NOK</li>
+			<li onclick="show.list(this)">СДР (Специальные права заимствования) XDR</li>
+			<li onclick="show.list(this)">Сингапурcкий доллар SGD</li>
+			<li onclick="show.list(this)">Киргизский сом KGS</li>
+			<li onclick="show.list(this)">Казахстанский тенге KZT</li>
+			<li onclick="show.list(this)">Турецкая лира TRY</li>
+			<li onclick="show.list(this)">Фунт стерлингов GBP</li>
+			<li onclick="show.list(this)">Чешская крона CZK</li>
+			<li onclick="show.list(this)">Шведская крона SEK</li>
+			<li onclick="show.list(this)">Швейцарский франк CHF</li>
+		<ul>
+	</div>
+	</div>
+	</center>
+
+
+	<script type="text/javascript" src="code.js"></script>
+</body>
+</html>
