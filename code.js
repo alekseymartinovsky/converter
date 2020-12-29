@@ -49,7 +49,7 @@ const exchangeRate = {
 	},
 }
 
-var show = {
+const show = {
 	list(obj){
 		document.getElementById('currency_list').hidden = true;
 
