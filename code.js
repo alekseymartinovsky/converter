@@ -37,12 +37,14 @@ const exchangeRate = {
 		if(obj.value != ''){
 			if(curName == 'BYN'){
 				this.rate.forEach((cur) => this.calculate(cur, obj.value));
-			}else{
+			}
+			else{
 				const byn = (obj.value * this.currency.get(curName)[COST] / this.currency.get(curName)[SCALE]);
 				document.getElementById('in_BYN').value = (Math.round(byn*100)/100);
 				this.rate.forEach((cur) => this.calculate(cur, byn));
 			}
-		}else{
+		}
+		else{
 			document.getElementById(INP + 'BYN').value = '';
 			this.rate.forEach((cur) => document.getElementById(INP + cur).value = '');
 		}
@@ -55,7 +57,8 @@ const show = {
 
 		if(obj.textContent.slice(obj.textContent.length-2) == SELECT){
 			this.add(obj);
-		}else{
+		}
+		else{
 			this.hide(obj);
 		}
 	},
