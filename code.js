@@ -100,8 +100,3 @@ document.onclick = (() => {
 });
 
 exchangeRate.getRate();
-
-function log(name){
-	console.log(name);
-}
-
