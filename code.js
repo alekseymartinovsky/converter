@@ -1,12 +1,10 @@
-const cost = 'Cur_OfficialRate';
-const abr = 'Cur_Abbreviation';
-const scale = 'Cur_Scale';
-const inp = 'in_';
+const COST = 'Cur_OfficialRate';
+const ABR = 'Cur_Abbreviation';
+const SCALE = 'Cur_Scale';
+const INP = 'in_';
+const SELECT = ' ✓';
+const CON = 'con_';
 let hidden = true;
-const select = ' ✓';
-const con = 'con_';
-
-document.getElementById('currency_list').hidden = true;
 
 const exchangeRate = {
 	url: "https://www.nbrb.by/api/exrates/rates?periodicity=0",
@@ -16,43 +14,37 @@ const exchangeRate = {
 		let response = await fetch(exchangeRate.url);
 		let data = await response.json();
 		data.forEach((name, index) => {
-			exchangeRate.currency.set(name[abr], data[index]);
+			exchangeRate.currency.set(name[ABR], data[index]);
 		});
 		this.showRate();
 		this.fill();
 	},
 	showRate(){
 		this.rate.forEach((curName) => {
-			document.getElementById(curName).textContent = exchangeRate.currency.get(curName)[cost];
+			document.getElementById(curName).textContent = exchangeRate.currency.get(curName)[COST];
 			this.calculate(curName, 1);
 		});
 	},
 	fill(){
-		document.getElementById(inp + 'BYN').value = 1;
+		document.getElementById(INP + 'BYN').value = 1;
 	},
 	calculate(curName, sum){
-		let res = (Math.round(((sum / this.currency.get(curName)[cost] * this.currency.get(curName)[scale]))*100)/100);
-		document.getElementById(inp + curName).value = res;
+		const res = (Math.round(((sum / this.currency.get(curName)[COST] * this.currency.get(curName)[SCALE]))*100)/100);
+		document.getElementById(INP + curName).value = res;
 	},
 	update(obj){
-		let curName = obj.id.slice(3, 6);
+		const curName = obj.id.slice(3, 6);
 		if(obj.value != ''){
 			if(curName == 'BYN'){
-				this.rate.forEach((cur) => {
-					this.calculate(cur, obj.value);
-				});
+				this.rate.forEach((cur) => this.calculate(cur, obj.value));
 			}else{
-				let byn = (obj.value * this.currency.get(curName)[cost] / this.currency.get(curName)[scale]);
+				const byn = (obj.value * this.currency.get(curName)[COST] / this.currency.get(curName)[SCALE]);
 				document.getElementById('in_BYN').value = (Math.round(byn*100)/100);
-				this.rate.forEach((cur) => {
-					this.calculate(cur, byn);
-				});
+				this.rate.forEach((cur) => this.calculate(cur, byn));
 			}
 		}else{
-			document.getElementById(inp + 'BYN').value = '';
-			this.rate.forEach((cur) => {
-				document.getElementById(inp + cur).value = '';
-			});
+			document.getElementById(INP + 'BYN').value = '';
+			this.rate.forEach((cur) => document.getElementById(INP + cur).value = '');
 		}
 	},
 }
@@ -61,7 +53,7 @@ var show = {
 	list(obj){
 		document.getElementById('currency_list').hidden = true;
 
-		if(obj.textContent.slice(obj.textContent.length-2) == select){
+		if(obj.textContent.slice(obj.textContent.length-2) == SELECT){
 			this.add(obj);
 		}else{
 			this.hide(obj);
@@ -72,7 +64,7 @@ var show = {
 		hidden = false;
 	},
 	add(obj){
-		let nameCur = obj.textContent.slice(obj.textContent.length - 5, obj.textContent.length - 2);
+		const nameCur = obj.textContent.slice(obj.textContent.length - 5, obj.textContent.length - 2);
 
 		obj.textContent = obj.textContent.slice(0, obj.textContent.length - 2);
 
@@ -82,16 +74,16 @@ var show = {
 			}
 		});
 
-		document.getElementById(con + nameCur).remove();
+		document.getElementById(CON + nameCur).remove();
 	},
 	hide(obj){
-		let nameCur = obj.textContent.slice(obj.textContent.length - 3);
+		const nameCur = obj.textContent.slice(obj.textContent.length - 3);
 
-		obj.textContent += select;
+		obj.textContent += SELECT;
 
 		let text = document.createElement('div');
 		text.className = 'converter';
-		text.id = con + nameCur;
+		text.id = CON + nameCur;
 		text.innerHTML = '<input type="number" id="in_' + nameCur + '" class="inp" name="" oninput="exchangeRate.update(this)">';
 		text.innerHTML += '<div class="name_currency">' + nameCur +'</div>';
 		document.getElementById('converter').append(text);
