@@ -84,7 +84,7 @@ const show = {
 
 		obj.textContent += SELECT;
 
-		let text = document.createElement('div');
+		const text = document.createElement('div');
 		text.className = 'converter';
 		text.id = CON + nameCur;
 		text.innerHTML = '<input type="number" id="in_' + nameCur + '" class="inp" name="" oninput="exchangeRate.update(this)">';
