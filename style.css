@@ -79,21 +79,21 @@ ul{
 
 @media (max-device-width: 425px){
 	html{
-		font-size: 48px;
+		font-size: 64px;
 	}
 
 	#converter{
-		width: 600px;
+		width: 750px;
 	}
 
 	.converter{
-		width: 600px;
+		width: 750px;
 	}
 
 	.inp{
-		width: 450px;
-		font-size: 48px;
-			padding-left: 10px; 
+		width: 565px;
+		font-size: 64px;
+			padding-left: 12px; 
 	}
 
 	.name_currency{
@@ -101,7 +101,7 @@ ul{
 	}
 
 	#currency_list{
-		width: 600px;
+		width: 750px;
 		background: white;
 	}
 
